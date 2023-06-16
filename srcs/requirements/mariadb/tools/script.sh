@@ -1,5 +1,7 @@
 #!/bin/bash
 
-service mysql start
+service mariadb start
 
 mysqld
+
+mysqld_safe 
