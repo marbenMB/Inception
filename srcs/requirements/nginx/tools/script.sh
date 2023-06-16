@@ -7,8 +7,8 @@ touch /etc/nginx/sites-available/wordpress
 
 echo "server 
 		{
-			listen 443 ssl;
 			listen [::]:443 ssl;
+			listen 443 ssl;
 
 			root /var/www/html;
 			index index.html;
@@ -18,13 +18,17 @@ echo "server
     		ssl_certificate_key $KEY;
     		ssl_protocols TLSv1.2;
 
+			location / {
+				index index.nginx-debian.html;
+			}
+
 			location ~ [^/]\.php(/|$) { 
-				# try_files \$uri =404;
+				try_files \$uri =404;
 				# fastcgi_pass wordpress:9000;
-				# include fastcgi_params;
-				# fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
+				include fastcgi_params;
+				fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
 				index index.html;
         	}
-		}" >> /etc/nginx/sites-available/wordpress
+		}" > /etc/nginx/sites-available/default
 
 nginx -g "daemon off;"
