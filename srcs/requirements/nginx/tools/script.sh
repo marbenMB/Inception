@@ -1,5 +1,30 @@
 #!/bin/bash
 
-openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt -subj "/C=MO/L=MA/O=1337/OU=student/CN=mbenbajj.1337.ma"
+openssl req -x509 -newkey rsa:2048 -nodes -keyout $KEY -out $CERTIF -days 365 -subj "/C=MO/L=MA/O=1337/OU=student/CN=mbenbajj.1337.ma"
+
+
+touch /etc/nginx/sites-available/wordpress
+
+echo "server 
+		{
+			listen 443 ssl;
+			listen [::]:443 ssl;
+
+			root /var/www/html;
+			index index.html;
+			server_name	mbenbajj.1337.ma;
+
+			ssl_certificate $CERTIF;
+    		ssl_certificate_key $KEY;
+    		ssl_protocols TLSv1.2;
+
+			location ~ [^/]\.php(/|$) { 
+				# try_files \$uri =404;
+				# fastcgi_pass wordpress:9000;
+				# include fastcgi_params;
+				# fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
+				index index.html;
+        	}
+		}" >> /etc/nginx/sites-available/wordpress
 
 nginx -g "daemon off;"
