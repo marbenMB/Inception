@@ -1,13 +1,17 @@
 FROM debian:bullseye
 
+WORKDIR /db
+
 RUN apt update
 
 RUN apt upgrade -y
 
 RUN apt install -y mariadb-server
 
-COPY /tools/maria.sql	/var
+COPY /tools/script.sh	.
 
-COPY /tools/script.sh	/var
+COPY /tools/maria.sql	.
 
-CMD [ "bash", "/var/script.sh" ]
+ENTRYPOINT [ "bash", "./script.sh" ]
+
+CMD [ "mysqld_safe", "--safe-mode" ]
