@@ -12,6 +12,10 @@ COPY /tools/script.sh	.
 
 COPY /tools/maria.sql	.
 
+# Bind Mount /var/lib/mysql
+
+EXPOSE 3306
+
 ENTRYPOINT [ "bash", "./script.sh" ]
 
 CMD [ "mysqld_safe", "--safe-mode" ]
