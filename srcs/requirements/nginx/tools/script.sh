@@ -31,4 +31,4 @@ echo "server
         	}
 		}" > /etc/nginx/sites-available/default
 
-nginx -g "daemon off;"
+exec "$@"

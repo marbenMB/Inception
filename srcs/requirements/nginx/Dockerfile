@@ -10,6 +10,10 @@ RUN apt-get install -y openssl
 
 COPY tools/script.sh /
 
+# Bind mount /var/www/html
+
 EXPOSE 443
 
-CMD [ "bash", "script.sh" ]
+ENTRYPOINT [ "bash", "./script.sh" ]
+
+CMD [ "nginx" , "-g" , "daemon off;" ]

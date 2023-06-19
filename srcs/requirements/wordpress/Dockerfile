@@ -10,6 +10,6 @@ RUN apt install php-fpm -y
 
 RUN apt install curl -y
 
-EXPOSE 9000
+# Bind mount /mount
 
 CMD [ "tail", "-f" ]
