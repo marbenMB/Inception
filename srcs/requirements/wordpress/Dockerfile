@@ -1,15 +1,15 @@
 FROM debian:bullseye
 
-WORKDIR /mount
+RUN apt-get update
 
-RUN apt update
+RUN apt-get upgrade -y
 
-RUN apt upgrade -y
+RUN apt install curl php-cli php-mysql -y
 
-RUN apt install php-fpm -y
+RUN apt install mariadb-client -y
 
-RUN apt install curl -y
+COPY tools/script.sh /tmp
 
-# Bind mount /mount
+ENTRYPOINT [ "bash", "/tmp/script.sh" ]
 
 CMD [ "tail", "-f" ]

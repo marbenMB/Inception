@@ -4,6 +4,8 @@ RUN apt-get update
 
 RUN apt-get upgrade -y
 
+RUN apt install curl php-cli -y
+
 # RUN apt install mariadb-server -y
 
 # COPY maria.sql /var

@@ -5,7 +5,7 @@ MARIA_DOC = srcs/requirements/mariadb/
 WORD_DOC = srcs/requirements/wordpress/
 NET = inception
 
-all : net nginx_img mariadb_img up
+all : net nginx_img mariadb_img wordpress_img up
 	# docker images
 
 net :
@@ -23,22 +23,24 @@ wordpress_img :
 up :
 	docker run -p 443:443 --env-file $(ENV) -v wordVol:/var/www/html --network $(NET) --name c_nginx -d nginx
 	docker run --env-file $(ENV) -v mariaVol:/var/lib/mysql --network $(NET) --name c_mariadb -d mariadb
-	# docker run --env-file $(ENV) -v wordVol:/mount --network $(NET) --name c_wordpress -d wordpress
+	docker run -p 8080:80 --env-file $(ENV) --network $(NET) --name c_wordpress -d wordpress
 
 down :
 	docker stop c_nginx
 	docker stop c_mariadb
-	# docker stop c_wordpress
+	docker stop c_wordpress
 
 clean :
 	docker rm c_nginx
 	docker rm c_mariadb
-	# docker rm c_wordpress
+	docker rm c_wordpress
 
-fclean : clean
+fclean : down clean 
 	docker rmi nginx
 	docker rmi mariadb
-	# docker rmi wordpress
+	docker rmi wordpress
 	docker network rm $(NET)
+	docker volume rm mariaVol
+	docker volume rm wordVol
 
 re : fclean all
