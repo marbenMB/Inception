@@ -21,9 +21,9 @@ wordpress_img :
 	docker build -t wordpress $(WORD_DOC)
 
 up :
-	docker run -p 443:443 --env-file $(ENV) -v wordVol:/var/www/html --network $(NET) --name c_nginx -d nginx
 	docker run --env-file $(ENV) -v mariaVol:/var/lib/mysql --network $(NET) --name c_mariadb -d mariadb
-	docker run -p 8080:80 --env-file $(ENV) --network $(NET) --name c_wordpress -d wordpress
+	docker run --env-file $(ENV) -v wordVol:/var/www/html --network $(NET) --name c_wordpress -d wordpress
+	docker run -p 443:443 --env-file $(ENV) -v wordVol:/var/www/html --network $(NET) --name c_nginx -d nginx
 
 down :
 	docker stop c_nginx

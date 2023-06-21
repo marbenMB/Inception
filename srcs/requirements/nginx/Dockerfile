@@ -10,7 +10,7 @@ RUN apt-get install -y openssl
 
 COPY tools/script.sh /
 
-# Bind mount /var/www/html
+COPY tools/nginx.conf /etc/nginx/
 
 EXPOSE 443
 
