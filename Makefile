@@ -1,34 +1,52 @@
-PATH=./srcs/docker-compose.yml
+FILE=./srcs/docker-compose.yml
 GREE=\x1b[32m
+BLU=\x1b[34m
+RED=\x1b[31m
 CLO=\033[0m
 
-up :
-	@docker compose -f $(PATH) up -d --build
-
-build :
-	@echo "$(GREE)"
+up:
+	@echo "$(BLU)"
 	@echo "// ************** //"
-	@echo "      Building      "
+	@echo "     STARTING       "
 	@echo "// ************** //"
 	@echo "$(CLO)"
-	@docker compose -f $(PATH) build
+	@docker-compose -f $(FILE) up -d --build
 
-start :
-	docker compose -f $(PATH) start
+build:
+	@echo "$(GREE)"
+	@echo "// ************** //"
+	@echo "      BUILDING      "
+	@echo "// ************** //"
+	@echo "$(CLO)"
+	@docker-compose -f $(FILE) build
 
-stop :
-	docker compose -f $(PATH) stop
+start:
+	@docker-compose -f $(FILE) start
 
-down :
-	docker compose -f $(PATH) down
+stop:
+	@docker-compose -f $(FILE) stop
 
-clean :
-	docker compose -f $(PATH) down -v
+down:
+	@docker-compose -f $(FILE) down
 
-fclean : down clean 
+clean:
+	@docker-compose -f $(FILE) down -v
+
+msg:
+	@echo "$(RED)"
+	@echo "// ************** //"
+	@echo "     SHUTDOWN       "
+	@echo "     CLEANING       "
+	@echo "// ************** //"
+	@echo "$(CLO)"
+
+fclean: msg down clean 
 	docker rmi nginx
 	docker rmi mariadb
 	docker rmi wordpress
+
+prune:
+	docker system prune -af
 
 re : fclean build up
 
