@@ -41,12 +41,12 @@ msg:
 	@echo "$(CLO)"
 
 fclean: msg down clean 
-	docker rmi nginx
-	docker rmi mariadb
-	docker rmi wordpress
+	@docker rmi nginx
+	@docker rmi mariadb
+	@docker rmi wordpress
 
 prune:
-	docker system prune -af
+	@docker system prune -af
 
 re : fclean build up
 

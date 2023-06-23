@@ -2,6 +2,7 @@ version: '3.8'
 
 networks:
   inception:
+    name: inception
 
 volumes:
   mariaVol:

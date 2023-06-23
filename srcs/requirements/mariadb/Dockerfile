@@ -2,17 +2,15 @@ FROM debian:bullseye
 
 WORKDIR /db
 
-RUN apt update
+RUN apt-get update
 
-RUN apt upgrade -y
+RUN apt-get upgrade -y
 
-RUN apt install -y mariadb-server
+RUN apt-get install -y mariadb-server
 
 COPY /tools/script.sh	.
 
 COPY /tools/maria.sql	.
-
-# Bind Mount /var/lib/mysql
 
 ENTRYPOINT [ "bash", "./script.sh" ]
 

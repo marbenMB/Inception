@@ -4,11 +4,11 @@ RUN apt-get update
 
 RUN apt-get upgrade -y
 
-RUN apt install curl php-cli php-mysql -y
+RUN apt-get install curl php-cli php-mysql -y
 
-RUN apt install mariadb-client -y
+RUN apt-get install mariadb-client -y
 
-RUN apt install -y php-fpm
+RUN apt-get install -y php-fpm
 
 RUN mkdir /run/php
 

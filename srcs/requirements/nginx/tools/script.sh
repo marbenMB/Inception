@@ -12,7 +12,7 @@ echo "server
 
 			root /var/www/html;
 			index index.php;
-			server_name	mbenbajj.1337.ma;
+			server_name	mbenbajj.42.fr;
 
 			ssl_certificate $CERTIF;
     		ssl_certificate_key $KEY;
@@ -23,7 +23,6 @@ echo "server
 				fastcgi_pass wordpress:9000;
 				include fastcgi_params;
 				fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
-				index index.html;
         	}
 		}" > /etc/nginx/sites-available/wordpress
 
