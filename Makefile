@@ -41,9 +41,13 @@ msg:
 	@echo "$(CLO)"
 
 fclean: msg down clean 
-	@docker rmi nginx
-	@docker rmi mariadb
-	@docker rmi wordpress
+	@docker rmi nginx:mbenbajj
+	@docker rmi mariadb:mbenbajj
+	@docker rmi wordpress:mbenbajj
+	@docker rmi redis:mbenbajj
+	@docker rmi adminer:mbenbajj
+	@docker rmi static:mbenbajj
+	@docker rmi cadvisor:mbenbajj
 
 prune:
 	@docker system prune -af
