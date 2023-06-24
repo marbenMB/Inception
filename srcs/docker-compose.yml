@@ -32,6 +32,7 @@ services:
       - inception
     depends_on:
       - mariadb
+      - redis
     restart: always
   nginx:
     image: nginx
@@ -47,4 +48,13 @@ services:
       - inception
     depends_on:
       - wordpress
+    restart: always
+  redis:
+    image: redis
+    build: ./requirements/bonus/redis
+    container_name: redis
+    env_file:
+      - ./.env
+    networks:
+      - inception
     restart: always
