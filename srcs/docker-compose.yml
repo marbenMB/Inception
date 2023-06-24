@@ -10,7 +10,7 @@ volumes:
 
 services:
   mariadb:
-    image: mariadb
+    image: mariadb:mbenbajj
     build: ./requirements/mariadb/
     container_name: mariadb
     env_file:
@@ -21,7 +21,7 @@ services:
       - inception
     restart: always
   wordpress:
-    image: wordpress
+    image: wordpress:mbenbajj
     build: ./requirements/wordpress/
     container_name: wordpress
     env_file:
@@ -35,7 +35,7 @@ services:
       - redis
     restart: always
   nginx:
-    image: nginx
+    image: nginx:mbenbajj
     build: ./requirements/nginx/
     container_name: nginx
     env_file:
@@ -50,7 +50,7 @@ services:
       - wordpress
     restart: always
   redis:
-    image: redis
+    image: redis:mbenbajj
     build: ./requirements/bonus/redis
     container_name: redis
     env_file:
@@ -59,7 +59,7 @@ services:
       - inception
     restart: always
   adminer:
-    image: adminer
+    image: adminer:mbenbajj
     build: ./requirements/bonus/adminer
     container_name: adminer
     ports:
@@ -70,7 +70,7 @@ services:
       - mariadb
     restart: always
   static:
-    image: static
+    image: static:mbenbajj
     build: ./requirements/bonus/static
     container_name: static
     ports:

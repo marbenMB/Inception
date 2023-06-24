@@ -10,7 +10,7 @@ up:
 	@echo "     STARTING       "
 	@echo "// ************** //"
 	@echo "$(CLO)"
-	@docker-compose -f $(FILE) up -d --build
+	@docker-compose -f $(FILE) up -d
 
 build:
 	@echo "$(GREE)"
