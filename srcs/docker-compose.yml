@@ -69,3 +69,12 @@ services:
     depends_on:
       - mariadb
     restart: always
+  static:
+    image: static
+    build: ./requirements/bonus/static
+    container_name: static
+    ports:
+      - '80:80'
+    networks:
+      - inception
+    restart: always

@@ -2,11 +2,80 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>MAR BEN</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Outfit&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"/>
+	<link rel="stylesheet" href="./Style.css">
+	<link rel="icon" type="image/png" href="/assets/assets/favicon.svg">
+	<title>Introduction</title>
 </head>
 <body>
-	<h1>Hy, This is MAR BEN !!</h1>
-	<p>-> This is my static Website Runing From static container served to you !!!</p>
+	<div class="container">
+
+
+		<!-- logo part -->
+		<div id="Logo">
+			<a href="/" class="S-txt">Inception</a>
+		</div>
+
+
+		<!-- Side barre -->
+		<div id="Side">
+			<h1 class="P-txt">GETTING STARTED</h1>
+			<ul id="List">
+				<li>
+					<a href="/" class="S-txt">Start Page</a>
+				</li>
+		</div>
+
+		<!-- Main body -->
+		<div id="Main">
+
+			<!-- Path Barre -->
+			<div id="Path">
+				<a href="/" class="Ps-txt">
+					<img id="Barre-Icon" src="/assets/assets/accueil.png" alt="Home">
+					<span>Inception</span>
+				</a>
+			</div>
+			<div class="Content">
+				<h2 class="S-txt">Get started with Inception</h2>
+				<section class="Description">
+					<p class="P-txt">
+						This project aims to broaden your knowledge of system administration by using Docker.
+						You will virtualize several Docker images, creating them in your new personal virtual
+						machine.
+						This project consists in having you set up a small infrastructure composed of different
+						services under specific rules. The whole project has to be done in a virtual machine. You
+						have to use docker compose.
+					</p>
+					<ul>
+						<li>
+							<span class="S-txt">Execution : </span>
+							<p class="S-txt">make</p>
+						</li>
+					</ul>
+					<p class="P-txt">Services Each Per Container : </p>
+					<ul>
+						<li class="S-txt">Wordpress + PHP-FPM</li>
+						<li class="S-txt">Nginx</li>
+						<li class="S-txt">Mariadb</li>
+						<li class="S-txt">Redis</li>
+						<li class="S-txt">Adminer</li>
+						<li class="S-txt">Static Website</li>
+						<li class="S-txt">Cadvisor</li>
+						<li class="S-txt">FTP</li>
+					</ul>	
+				</section>
+				<div class="btn">
+					<a href="https://cdn.intra.42.fr/pdf/pdf/81656/en.subject.pdf" class="S-txt A-button" target="_blank">For More About Project.</a>
+				</div>
+				<a href="https://github.com/marbenMB/Inception" target="_blank" class="S-txt A-button">View On Github</a>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
