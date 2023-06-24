@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "maxmemory 256mb" >> /etc/redis/redis.conf
+echo "maxmemory 512mb" >> /etc/redis/redis.conf
 
 echo "maxmemory-policy allkeys-lru" >> /etc/redis/redis.conf
 
