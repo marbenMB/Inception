@@ -94,3 +94,15 @@ services:
       - redis
       - static
       - adminer
+  ftp:
+    image: ftp
+    build: ./requirements/bonus/ftp
+    container_name: ftp
+    volumes:
+      - wordVol:/wordpress
+    networks:
+      - inception
+    restart: always
+    depends_on:
+      - wordpress
+    
