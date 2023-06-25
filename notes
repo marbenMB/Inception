@@ -1,0 +1,10 @@
+- project in virtual machine
+  - vogspher from virtual machine
+  - volumes from virtual machine
+  - ssh
+- image name as service name
+- docker networks
+- docker restart
+- docker volumes
+- CMD Vs ENTRYPOINT
+- cadvisor
