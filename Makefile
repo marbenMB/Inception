@@ -10,9 +10,9 @@ up:
 	@echo "     STARTING       "
 	@echo "// ************** //"
 	@echo "$(CLO)"
-	# @mkdir -p /home/mbenbajj/data &> /dev/null
-	# @mkdir -p /home/mbenbajj/data/wordpress &> /dev/null
-	# @mkdir -p /home/mbenbajj/data/mariadb &> /dev/null
+	@mkdir -p ${HOME}/data &> /dev/null
+	@mkdir -p ${HOME}/data/wordpress &> /dev/null
+	@mkdir -p ${HOME}/data/mariadb &> /dev/null
 	@docker-compose -f $(FILE) up -d
 
 build:
@@ -54,7 +54,7 @@ fclean: msg down clean
 
 prune:
 	@docker system prune -af
-	@rm -rf /home/mbenbajj/data/* &> /dev/null
+	@rm -rf ${HOME}/data/* &> /dev/null
 
 re : fclean build up
 

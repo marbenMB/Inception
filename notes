@@ -1,8 +1,7 @@
 - project in virtual machine
-  - vogspher from virtual machine
-  - volumes from virtual machine
+  - volumes from virtual machine : √
   - ssh
-- image name as service name
+- image name as service name : √
 - docker networks
 - docker restart
 - docker volumes

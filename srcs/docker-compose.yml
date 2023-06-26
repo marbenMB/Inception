@@ -6,7 +6,17 @@ networks:
 
 volumes:
   mariaVol:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /Users/marouanebenbajja/data/mariadb
   wordVol:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /Users/marouanebenbajja/data/wordpress
 
 services:
   mariadb:
@@ -99,9 +109,13 @@ services:
     build: ./requirements/bonus/ftp
     container_name: ftp
     volumes:
-      - wordVol:/wordpress
+      - wordVol:/home/mbenbajj/ftp
     networks:
       - inception
+    ports:
+      - "21:21"
+      - "20:20"
+      - "40000-40005:40000-40005"
     restart: always
     depends_on:
       - wordpress

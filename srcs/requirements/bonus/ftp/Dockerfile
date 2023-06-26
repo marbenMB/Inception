@@ -8,4 +8,4 @@ COPY ./tools/script.sh /tmp
 
 ENTRYPOINT [ "bash", "/tmp/script.sh" ]
 
-CMD [ "usr/sbin/vsftpd" ]
+CMD [ "/usr/sbin/vsftpd" ]
