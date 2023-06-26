@@ -10,13 +10,13 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /Users/marouanebenbajja/data/mariadb
+      device: /home/mbenbajj/data/mariadb
   wordVol:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /Users/marouanebenbajja/data/wordpress
+      device: /home/mbenbajj/data/wordpress
 
 services:
   mariadb:
