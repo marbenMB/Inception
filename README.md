@@ -33,9 +33,9 @@ services under specific rules. By containerizing serveral service and build thei
 8. [X] [WordPress Container](https://github.com/marbenMB/Inception/tree/master/srcs/requirements/wordpress)
 9. [X] [MariaDB Container](https://github.com/marbenMB/Inception/tree/master/srcs/requirements/mariadb)
 1. [X] [Bonus-adminer Container](https://github.com/marbenMB/Inception/tree/master/srcs/requirements/bonus/adminer)
-1. [X] [Bonus-portainer Container](https://github.com/marbenMB/Inception/tree/master/srcs/requirements/bonus/cadvisor)
+1. [X] [Bonus-cadvisor Container](https://github.com/marbenMB/Inception/tree/master/srcs/requirements/bonus/cadvisor)
 1. [X] [Bonus-redis Container](https://github.com/marbenMB/Inception/tree/master/srcs/requirements/bonus/redis)
-1. [X] [Bonus-staticsite Container](https://github.com/marbenMB/Inception/tree/master/srcs/requirements/bonus/staticsite)
+1. [X] [Bonus-staticsite Container](https://github.com/marbenMB/Inception/tree/master/srcs/requirements/bonus/static)
 
 ## Usage :
 
